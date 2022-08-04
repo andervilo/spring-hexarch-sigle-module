@@ -19,7 +19,9 @@ public class PessoaServiceImpl implements PessoaService {
 
 	@Override
 	public Pessoa update(Pessoa pessoa) {
-		return pessoaRepository.update(pessoa);
+		var pessoaToUpdate = pessoaRepository.findOne(pessoa.getId());
+		pessoaToUpdate.updateFrom(pessoa);
+		return pessoaRepository.update(pessoaToUpdate);
 	}
 
 	@Override

@@ -3,9 +3,6 @@ package org.health.pacientes.domain.pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.health.pacientes.infra.anotations.validations.Required;
-
-import javax.validation.Valid;
 
 @Data
 @AllArgsConstructor
@@ -21,5 +18,12 @@ public class Pessoa {
 	private String empresa;
 
 	private String profissao;
+	
+	public void updateFrom(Pessoa pessoa) {
+		setNome(pessoa.getNome());
+		setIdade(pessoa.getIdade());
+		setEmpresa(pessoa.getEmpresa());
+		setProfissao(pessoa.getProfissao());
+	}
 
 }
